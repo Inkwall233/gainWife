@@ -28,6 +28,33 @@
 			#post {
 				 display: inline-block;
 				  padding: 15px 25px;
+				  margin-right: 30px;
+				  font-size: 24px;
+				  cursor: pointer;
+				  text-align: center;   
+				  text-decoration: none;
+				  outline: none;
+				  color: #fff;
+				  background-color: rgb(194, 68, 18); 
+				  border: none;
+				  border-radius: 15px;
+				  box-shadow: 0 9px #999;			
+			}
+			
+			#post:hover {
+				background-color: rgb(167, 16, 16);
+			}
+			
+			#post:active {
+				  background-color: rgb(194, 68, 18);
+				  box-shadow: 1px 5px #666;
+				  transform: translateY(4px);
+				}
+			#again {
+				
+				 display: inline-block;
+				  padding: 15px 25px;
+				  margin-left: 30px;
 				  font-size: 24px;
 				  cursor: pointer;
 				  text-align: center;   
@@ -39,16 +66,21 @@
 				  border-radius: 15px;
 				  box-shadow: 0 9px #999;			
 			}
-			
-			#post:hover {
-				background-color: #3e8e41
+			#again:hover {
+				background-color: #4CAF50;
 			}
 			
-			#post:active {
-				  background-color: #3e8e41;
+			#again:active {
+				  background-color:#4CAF50;
 				  box-shadow: 1px 5px #666;
 				  transform: translateY(4px);
 				}
+
+			footer {
+				position: absolute;
+				bottom: 2px;
+				right: 10px;
+			}
 			@media screen and(max-width: 700px) {
 				body {
 					height: 800px;
@@ -65,9 +97,14 @@
 			<img url="https://cf.cndrew.cn/images/2019/10/02/1.jpg" alt="">
 			
 			<button id="post">&nbsp;&nbsp;截图&nbsp;&nbsp;</button>
+			<button id="again">&nbsp;&nbsp;给&nbsp;！&nbsp;</button>
+			<p>如果上天能够再给我一次机会</p>
 		</div>
 		
-		
+		<footer>
+			designed by 
+			<a href="https://inkwall.cn">inkWall</a>
+		</footer>
 		<script type="text/javascript">
 
 			var img = document.getElementsByTagName("img")[0];
@@ -87,6 +124,16 @@
             imgArr[11] = "https://cf.cndrew.cn/images/2019/10/02/12.jpg";
             imgArr[12] = "https://cf.cndrew.cn/images/2019/10/02/13.jpg";
 			
+			var imgWrap = [];
+			function preloadImg(arr) {
+				for(var i =0; i< arr.length ;i++) {
+					imgWrap[i] = new Image();
+					imgWrap[i].src = arr[i];
+				}
+			}
+			
+    		preloadImg(imgArr);
+
 			var index = 0;
 			var star;
 			/*图片循环*/
@@ -99,11 +146,16 @@
 				img.src = imgArr[index];
 			};
 			show_picture();
-			/*终止循环*/
 		
 			var post = document.getElementById("post");
+			var again = document.getElementById("again");
 			post.onclick = function(){
 				clearTimeout(star);
+				alert("恭喜,截到第"+(index+1)+"位小姐姐");
+			}
+
+			again.onclick = function(){
+				show_picture();
 			}
 		</script>
 	</body>
