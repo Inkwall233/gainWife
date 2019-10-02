@@ -55,33 +55,45 @@
 				}
 				img {
 					width: 80%;
+                }
 			}
 		</style>
-	
+
 	</head>
 	<body>
 		<div id="outer">
-			<img src="../image/1.jpg" alt="">
+			<img url="https://cf.cndrew.cn/images/2019/10/02/1.jpg" alt="">
 			
 			<button id="post">&nbsp;&nbsp;截图&nbsp;&nbsp;</button>
 		</div>
 		
 		
 		<script type="text/javascript">
-			
-			//获取图片标签
+
 			var img = document.getElementsByTagName("img")[0];
+
+			var imgArr = [];
+            imgArr[0] = "https://cf.cndrew.cn/images/2019/10/02/1.jpg";
+            imgArr[1] = "https://cf.cndrew.cn/images/2019/10/02/2.jpg";
+            imgArr[2] = "https://cf.cndrew.cn/images/2019/10/02/3.jpg";
+            imgArr[3] = "https://cf.cndrew.cn/images/2019/10/02/4.jpg";
+            imgArr[4] = "https://cf.cndrew.cn/images/2019/10/02/5.jpg";
+            imgArr[5] = "https://cf.cndrew.cn/images/2019/10/02/6.jpg";
+            imgArr[6] = "https://cf.cndrew.cn/images/2019/10/02/7.jpg";
+            imgArr[7] = "https://cf.cndrew.cn/images/2019/10/02/8.jpg";
+            imgArr[8] = "https://cf.cndrew.cn/images/2019/10/02/9.jpg";
+            imgArr[9] = "https://cf.cndrew.cn/images/2019/10/02/10.jpg";
+            imgArr[10] = "https://cf.cndrew.cn/images/2019/10/02/11.jpg";
+            imgArr[11] = "https://cf.cndrew.cn/images/2019/10/02/12.jpg";
+            imgArr[12] = "https://cf.cndrew.cn/images/2019/10/02/13.jpg";
 			
-			//创建图片数组	
-			var imgArr = ["image/1.jpg","image/2.jpg","image/3.jpg","image/4.jpg","image/5.jpg","image/6.jpg","image/7.jpg","image/8.jpg","image/9.jpg","image/10.jpg"];
-			//创建一个索引
 			var index = 0;
 			var star;
 			/*图片循环*/
 			function show_picture(){
 				star=window.setTimeout("show_picture()", 100);
 				index++;
-				if(index>9){
+				if(index>12){
 					index=0;
 				}
 				img.src = imgArr[index];
