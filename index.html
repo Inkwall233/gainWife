@@ -57,6 +57,7 @@
 				  margin-left: 30px;
 				  font-size: 24px;
 				  cursor: pointer;
+
 				  text-align: center;   
 				  text-decoration: none;
 				  outline: none;
@@ -90,14 +91,14 @@
                 }
 			}
 		</style>
-
+、
 	</head>
 	<body>
 		<div id="outer">
 			<img url="https://cf.cndrew.cn/images/2019/10/02/1.jpg" alt="">
 			
-			<button id="post">&nbsp;&nbsp;截图&nbsp;&nbsp;</button>
-			<button id="again">&nbsp;&nbsp;给&nbsp;！&nbsp;</button>
+			<button id="post">&nbsp;&nbsp;开始&nbsp;&nbsp;</button>
+			<button id="again">&nbsp;&nbsp;再来一次&nbsp;！&nbsp;</button>
 			<p>如果上天能够再给我一次机会</p>
 		</div>
 		
@@ -136,21 +137,26 @@
 
 			var index = 0;
 			var star;
-			/*图片循环*/
+			var timer = null;
+			/*图片循环0*/
 			function show_picture(){
-				star=window.setTimeout("show_picture()", 100);
+				//开始定时器判断，
+				if (timer){
+					clearTimeout(timer);
+				}
+				timer=window.setTimeout("show_picture()", 100);
 				index++;
 				if(index>12){
-					index=0;
+					index=0;	
 				}
 				img.src = imgArr[index];
 			};
 			show_picture();
-		
+
 			var post = document.getElementById("post");
 			var again = document.getElementById("again");
 			post.onclick = function(){
-				clearTimeout(star);
+				clearTimeout(timer);
 				alert("恭喜,截到第"+(index+1)+"位小姐姐");
 			}
 
