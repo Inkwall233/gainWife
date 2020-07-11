@@ -13,34 +13,37 @@
 			}
 			
 			#outer{
-
-				margin: auto;
+				margin: 10% auto;
 				border: 1px;
 				border-color: aqua;
 				width: 400px;
 				height:560px;
 				text-align: center;
+				overflow: hidden;
+				position: relative;
 			}
 			img {
-				width: 400px;
 				height: 560px;
 			}
-			#post {
-				 display: inline-block;
+			#post,#again {
+				display: inline-block;
+				 position: absolute;
+				 bottom: 0;
 				  padding: 15px 25px;
-				  margin-right: 30px;
 				  font-size: 24px;
 				  cursor: pointer;
 				  text-align: center;   
 				  text-decoration: none;
 				  outline: none;
 				  color: #fff;
+			}
+			#post {
+				 left: 0;
 				  background-color: rgb(194, 68, 18); 
 				  border: none;
 				  border-radius: 15px;
 				  box-shadow: 0 9px #999;			
 			}
-			
 			#post:hover {
 				background-color: rgb(167, 16, 16);
 			}
@@ -51,17 +54,7 @@
 				  transform: translateY(4px);
 				}
 			#again {
-				
-				 display: inline-block;
-				  padding: 15px 25px;
-				  margin-left: 30px;
-				  font-size: 24px;
-				  cursor: pointer;
-
-				  text-align: center;   
-				  text-decoration: none;
-				  outline: none;
-				  color: #fff;
+				right: 0;
 				  background-color: #4CAF50;
 				  border: none;
 				  border-radius: 15px;
@@ -91,14 +84,14 @@
                 }
 			}
 		</style>
-、
+
 	</head>
 	<body>
 		<div id="outer">
-			<img url="https://cf.cndrew.cn/images/2019/10/02/1.jpg" alt="">
+			<img url="https://cdn.jsdelivr.net/gh/inkwall233/imgcdn/gainwife/20200711115154.jpg" alt="">
 			
-			<button id="post">&nbsp;&nbsp;开始&nbsp;&nbsp;</button>
-			<button id="again">&nbsp;&nbsp;再来一次&nbsp;！&nbsp;</button>
+			<button id="post">&nbsp;开始截图&nbsp;</button>
+			<button id="again">&nbsp;再来一次&nbsp;</button>
 			<p>如果上天能够再给我一次机会</p>
 		</div>
 		
@@ -106,28 +99,30 @@
 			designed by 
 			<a href="https://inkwall.cn">inkWall</a>
 		</footer>
+
 		<script type="text/javascript">
 
 			var img = document.getElementsByTagName("img")[0];
 
 			var imgArr = [];
-            imgArr[0] = "https://cf.cndrew.cn/images/2019/10/02/1.jpg";
-            imgArr[1] = "https://cf.cndrew.cn/images/2019/10/02/2.jpg";
-            imgArr[2] = "https://cf.cndrew.cn/images/2019/10/02/3.jpg";
-            imgArr[3] = "https://cf.cndrew.cn/images/2019/10/02/4.jpg";
-            imgArr[4] = "https://cf.cndrew.cn/images/2019/10/02/5.jpg";
-            imgArr[5] = "https://cf.cndrew.cn/images/2019/10/02/6.jpg";
-            imgArr[6] = "https://cf.cndrew.cn/images/2019/10/02/7.jpg";
-            imgArr[7] = "https://cf.cndrew.cn/images/2019/10/02/8.jpg";
-            imgArr[8] = "https://cf.cndrew.cn/images/2019/10/02/9.jpg";
-            imgArr[9] = "https://cf.cndrew.cn/images/2019/10/02/10.jpg";
-            imgArr[10] = "https://cf.cndrew.cn/images/2019/10/02/11.jpg";
-            imgArr[11] = "https://cf.cndrew.cn/images/2019/10/02/12.jpg";
-            imgArr[12] = "https://cf.cndrew.cn/images/2019/10/02/13.jpg";
+            imgArr[0] = "https://cdn.jsdelivr.net/gh/inkwall233/imgcdn/gainwife/20200711115154.jpg";
+			imgArr[1] = "https://cdn.jsdelivr.net/gh/inkwall233/imgcdn/gainwife/20200711115209.jpg";
+			imgArr[2] = "https://cdn.jsdelivr.net/gh/inkwall233/imgcdn/gainwife/20200711115201.jpeg";
+			imgArr[3] = "https://cdn.jsdelivr.net/gh/inkwall233/imgcdn/gainwife/20200711115137.webp";
+			imgArr[4] = "https://cdn.jsdelivr.net/gh/inkwall233/imgcdn/gainwife/20200711115146.jpg";
+			imgArr[5] = "https://cdn.jsdelivr.net/gh/inkwall233/imgcdn/gainwife/20200711115129.webp";
+			imgArr[6] = "https://cdn.jsdelivr.net/gh/inkwall233/imgcdn/gainwife/20200711115122.webp";
+			imgArr[7] = "https://cdn.jsdelivr.net/gh/inkwall233/imgcdn/gainwife/20200711115117.webp";
+			imgArr[8] = "https://cdn.jsdelivr.net/gh/inkwall233/imgcdn/gainwife/20200711115109.webp";
+			imgArr[9] = "https://cdn.jsdelivr.net/gh/inkwall233/imgcdn/gainwife/20200711115101.webp";
+			imgArr[10] = "https://cdn.jsdelivr.net/gh/inkwall233/imgcdn/gainwife/20200711115053.webp";
+			imgArr[11] = "https://cdn.jsdelivr.net/gh/inkwall233/imgcdn/gainwife/20200711115044.webp";
+			imgArr[12] = "https://cdn.jsdelivr.net/gh/inkwall233/imgcdn/gainwife/20200711115028.webp";
+		
 			
 			var imgWrap = [];
 			function preloadImg(arr) {
-				for(var i =0; i< arr.length ;i++) {
+				for(var i=0 ; i< arr.length ; i++) {
 					imgWrap[i] = new Image();
 					imgWrap[i].src = arr[i];
 				}
@@ -146,7 +141,7 @@
 				}
 				timer=window.setTimeout("show_picture()", 100);
 				index++;
-				if(index>12){
+				if(index>imgArr.length-1){
 					index=0;	
 				}
 				img.src = imgArr[index];
@@ -157,7 +152,7 @@
 			var again = document.getElementById("again");
 			post.onclick = function(){
 				clearTimeout(timer);
-				alert("恭喜,截到第"+(index+1)+"位小姐姐");
+				alert("恭喜,截到第"+(index+1)+"位");
 			}
 
 			again.onclick = function(){
